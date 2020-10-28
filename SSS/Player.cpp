@@ -131,7 +131,7 @@ void Player::UpdatePlayer()
         PlayState("Roundhouse");
         this->SetAttack("Roundhouse");
     }
-    else if (Game::Instance()->KeyDown(SDL_SCANCODE_H))
+    else if (Game::Instance()->KeyDowns(SDL_SCANCODE_H))
     {
         PlayState("Hadouken");
         this->SetAttack("Hadouken");
