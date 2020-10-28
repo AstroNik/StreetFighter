@@ -32,6 +32,14 @@ public:
 	void Move();
 	void SetCanAttack(bool atk) { canAttack = atk; }
 
+	int GetHealth()
+	{
+		return gm.GetHP();
+	}
+
+	void Reset(float x) { gm.HealthFix(); m_X = x; }
+
+
 	void SpawnHadouken();
 
 	vector<Hadouken*>& GetHadoukens() {

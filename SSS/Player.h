@@ -10,7 +10,7 @@ class Player : public SpriteExAnimated
 private:
 	double m_velX = 0,
 		m_velY = 0,
-		preJumpYVal=0,
+		preJumpYVal = 0,
 		m_velMax = 10;
 
 	vector<Hadouken*> m_vHadoukens;
@@ -28,6 +28,9 @@ public:
 	//void SetIdle();
 	virtual void Jump();
 	void OnJumpAnimComplete();
+
+	int GetHealth() { return gm.GetHP(); }
+	void Reset(float x) { gm.HealthFix(); m_X = x; }
 
 	void SpawnHadouken();
 

@@ -1,6 +1,7 @@
 #include "GameState.h"
 #include "Game.h"
 #include "PauseMenuPopupState.h"
+#include "EndGameState.h"
 
 void GameState::Enter()
 {
@@ -24,7 +25,11 @@ void GameState::Enter()
 	player = new Player(mainSpriteTex, bgDestRect.w*0.5, bgDestRect.h - 100);
 
 	enemy = new Enemy(EnemySpriteTex, bgDestRect.w * 0.7, bgDestRect.h - 100);
- 
+	
+	enemyXPos = bgDestRect.w * 0.7;
+
+	playerXPos = bgDestRect.w * 0.5;
+
 }
 
 
@@ -44,7 +49,24 @@ void GameState::Update()
 	if (player) this->CheckCollision();
 	if (enemy) this->CheckAttackRange();
 
+	if (enemy->GetHealth() <= 0)
+	{
+		playWins += 1;
+		enemy->Reset(enemyXPos);
+		player->Reset(playerXPos);
+	}
+	else if (player->GetHealth() <= 0)
+	{
+		enemWins += 1;
+		player->Reset(playerXPos);
+		enemy->Reset(enemyXPos);
+	}
  
+	if (playWins == 3 || enemWins == 3)
+	{
+		SDL_Delay(500);
+		Game::Instance()->GetFSM()->ChangeState(new EndGameState(playWins,enemWins));
+	}
 }
 
 

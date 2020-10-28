@@ -10,6 +10,12 @@ using namespace std;
 
 class GameState : public ScreenState
 {
+private: 
+	int playWins=0;
+	int enemWins = 0;
+	int playerXPos = 0;
+	int enemyXPos = 0;
+
 protected:
 	SDL_Texture * mainSpriteTex;//load and store the main sprite texture
 	SDL_Texture* bgSpriteTex; //load and store background sprite tex

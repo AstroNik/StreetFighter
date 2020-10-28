@@ -12,5 +12,6 @@ public:
 	void TakeDamage(int dmg) { hp -= dmg; };
 	int GetScore() { return score; }
 	void SetScore(int nscore) { score += nscore; };
+	void HealthFix() { hp = 100; };
 };
 
