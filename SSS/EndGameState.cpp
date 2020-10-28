@@ -43,8 +43,8 @@ void EndGameState::Render()
 		m_vButtons[i]->Render();
 	string g = "Game Over";
 	string s = "Player: " + to_string(finalPlayer)+ " - Enemy: "+to_string(finalEnemy);
-	EndGameState::RenderFont(true, g.c_str(), 300, 150);
-	EndGameState::RenderFont(true, s.c_str(), 300, 250);
+	EndGameState::RenderFont(true, g.c_str(), 375, 150);
+	EndGameState::RenderFont(true, s.c_str(), 225, 250);
 
 	ScreenState::Render();
 }

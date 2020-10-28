@@ -22,13 +22,13 @@ void GameState::Enter()
 
 	gm = new GameManager();
 	  
-	player = new Player(mainSpriteTex, bgDestRect.w*0.5, bgDestRect.h - 100);
+	player = new Player(mainSpriteTex, bgDestRect.w*0.25, bgDestRect.h - 100);
 
-	enemy = new Enemy(EnemySpriteTex, bgDestRect.w * 0.7, bgDestRect.h - 100);
+	enemy = new Enemy(EnemySpriteTex, bgDestRect.w * 0.95, bgDestRect.h - 100);
 	
-	enemyXPos = bgDestRect.w * 0.7;
+	playerXPos = bgDestRect.w * 0.25;
 
-	playerXPos = bgDestRect.w * 0.5;
+	enemyXPos = bgDestRect.w * 0.95;
 
 }
 
